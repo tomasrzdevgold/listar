@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="usuarios">
+
+</div>
+<form  action="http://localhost:3000/api/teste" method="get">
+<input value="listar" name="listar" type="submit">
+</form>
+
+
+
+
+
+
+<script>
+    let divusuarios = document.querySelector('#usuarios')
+
+
+
+
+    fetch("http://localhost:3000/api/teste").then((response)=>{
+        response.json().then((dados)=>{
+            dados.result["rows"].map((usuario) =>{
+               divusuarios.innerHTML += `<li> ${usuario.nome} </li>`
+            })
+        })
+    })
+    
+
+</script>
+</body>
+</html>
