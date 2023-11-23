@@ -4,16 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        td,tr,th,table{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-<div id="usuarios">
+<h1 align="center">LISTAGEM DOS CADASTROS</h1>
+<table id="usuarios">
+    <thead align="center">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Genero</th>
+            <th>Estado</th>
+            <th>Cidade</th>
+            <th>Receber Contato</th>
+        </tr>
+    </thead>
+</table>
 
-</div>
-<form  action="https://vercel-postgres-tan.vercel.app/api/teste" method="get">
+<!--
+<form  action="http://localhost:3000/api/teste" method="get">
 <input value="listar" name="listar" type="submit">
 </form>
 
-
+-->
 
 
 
@@ -27,7 +44,19 @@
     fetch("http://localhost:3000/api/teste").then((response)=>{
         response.json().then((dados)=>{
             dados.result["rows"].map((usuario) =>{
-               divusuarios.innerHTML += `<li> ${usuario.nome} </li>`
+                //divusuarios.innerHTML = `<tr> </tr>`
+               divusuarios.innerHTML += `
+               
+    <tr>
+        <td>${usuario.nome}</td>
+        <td> ${usuario.email} </td>
+        <td>${usuario.genero}</td>
+        <td> ${usuario.estado} </td>
+        <td>${usuario.cidade}</td>
+        <td> ${usuario.receber_contato} </td>
+     </tr>
+               
+                `
             })
         })
     })
