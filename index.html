@@ -41,7 +41,8 @@
 
 
 
-    fetch("http://localhost:3000/api/teste").then((response)=>{
+   // fetch("http://localhost:3000/api/teste")
+        fetch("https://vercel-postgres-tan.vercel.app/api/teste").then((response)=>{
         response.json().then((dados)=>{
             dados.result["rows"].map((usuario) =>{
                 //divusuarios.innerHTML = `<tr> </tr>`
